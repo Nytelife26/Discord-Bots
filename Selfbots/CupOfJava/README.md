@@ -33,7 +33,7 @@ The ping command produces errors, it says something about a variable being refer
 > Why it should be added to the bot
 
 # How to install
-- Download the CupOfJava.py file by checking out with Git SVN
+- Download the CupOfJava.py file by checking out with Git SVN or by going into it and pressing download
 - Edit the token variable and the command prefix, there will be comments for more detailed instruction
 - Run the bot
 - PROFIT!
