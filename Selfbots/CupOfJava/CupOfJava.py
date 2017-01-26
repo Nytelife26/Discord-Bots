@@ -8,7 +8,7 @@ import os
 import sys
 # If you don't have bs4 installed or discord.py, go to terminal or CMD or whatever you use and type the following:
 # pip3 install bs4
-# pip3 install discord
+# Then go to Discord.py's GitHub and follow the instructions to download it
 
 token = 'user account token goes here' 
 
