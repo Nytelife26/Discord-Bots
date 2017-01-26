@@ -1,5 +1,3 @@
-##### Please read Notices.md for a changelog and upcoming features board
-
 #### Failure to read and comply with this results in termination of your rights to use the bot
 
 # Requirements
@@ -33,3 +31,11 @@ The ping command produces errors, it says something about a variable being refer
 > A detailed description of what it will do
 > Arguments (if any)
 > Why it should be added to the bot
+
+# How to install
+- Download the CupOfJava.py file by checking out with Git SVN
+- Edit the token variable and the command prefix, there will be comments for more detailed instruction
+- Run the bot
+- PROFIT!
+
+##### Please read Notices.md for a changelog and upcoming features board
