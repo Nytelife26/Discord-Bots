@@ -19,7 +19,7 @@
 <code> 
 The ping command produces errors, it says something about a variable being referenced before assignment and it's in the ping command.
 </code>
-##### NOTICE - that was an example, that is not a real issue
+##### NOTICE - that was an example, that is not a real issue. You should also be more specific than "it says something about" by telling me what it actually says
 
 
 # Feature requests
