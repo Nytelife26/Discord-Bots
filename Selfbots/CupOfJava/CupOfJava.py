@@ -18,7 +18,7 @@ bot = commands.Bot(command_prefix='UsernameHere(', description=description, self
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(game=discord.Game(name='with you | sudo apt-get install a-life'), status=discord.Status.dnd)
+    await bot.change_presence(game=discord.Game(name='a funny joke or something you want to appear as your playing status'), status=discord.Status.dnd) #Change the string in name=''
     print('CupOfJava - Selfbot version of SmartBrew')
     print('----------------------------------------')
     print('Be sure to keep me updated by going to my')
