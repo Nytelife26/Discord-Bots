@@ -13,7 +13,8 @@ import sys
 token = 'user account token goes here' 
 
 description = '''CupOfJava is a selfbot created by Nyte for automatic moderation and other miscellaneous things'''
-bot = commands.Bot(command_prefix='UsernameHere(', description=description, self_bot=True)
+bot = commands.Bot(command_prefix='UsernameHere(', description=description, self_bot=True) # Change "UsernameHere(" to say your username followed by an opening parenthesis
+
 
 @bot.event
 async def on_ready():
