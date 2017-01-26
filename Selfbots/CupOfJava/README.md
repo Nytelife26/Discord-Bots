@@ -10,6 +10,8 @@
 ### If you find any issues with the bot, please do the following
 - Create an issue on the repo
 
+#### If you are getting a syntax error on the async def statement, this is not an issue. This only happens on Python 3.4.x and below. To fix it you need to download Python 3.5x or above (preferably 3.5.2)
+
 ### How the issue should be formatted
 > What the issue is <br/>
 > If you know what's causing it, state that too <br/>
