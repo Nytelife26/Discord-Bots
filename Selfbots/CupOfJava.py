@@ -6,6 +6,9 @@ import asyncio
 from bs4 import BeautifulSoup
 import os
 import sys
+# If you don't have bs4 installed or discord.py, go to terminal or CMD or whatever you use and type the following:
+# pip3 install bs4
+# pip3 install discord
 
 token = 'user account token goes here' 
 
@@ -28,7 +31,7 @@ async def info():
     """Just an info command"""
     print('{} | Info ran in {}'.format(str(ctx.message.timestamp), ctx.message.server))
     await bot.say("```md\n[ Command executed ][ Info ]\n< CupOfJava is a selfbot created by Nyte for automatic moderation and other miscellaneous things >\n[ Instance owner ][ {} ]\n[ GitHub link ][ https://github.com/Nytelife26/Discord-Bots ]```")
-
+    
 @bot.command(pass_context=True, name='ping)')
 async def ping(ctx):
     """Does what it says on the tin."""
