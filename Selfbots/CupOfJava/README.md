@@ -1,3 +1,5 @@
+#### Please read Notices.md for a changelog and upcoming features board
+
 # Requirements
 ### If these are not met you lose all rights to use the provided bot
 - Do not redistribute this software, instead, send people [the link](https://github.com/Nytelife26/Discord-Bots) instead
