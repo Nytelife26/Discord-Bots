@@ -1,4 +1,6 @@
-#### Please read Notices.md for a changelog and upcoming features board
+##### Please read Notices.md for a changelog and upcoming features board
+
+#### Failure to read and comply with this results in termination of your rights to use the bot
 
 # Requirements
 ### If these are not met you lose all rights to use the provided bot
