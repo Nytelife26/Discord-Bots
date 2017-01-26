@@ -27,8 +27,8 @@ async def on_ready():
     print('----------------------------------------')
     
             
-@bot.command(name='info)')
-async def info():
+@bot.command(pass_context=True, name='info)')
+async def info(ctx):
     """Just an info command"""
     print('{} | Info ran in {}'.format(str(ctx.message.timestamp), ctx.message.server))
     await bot.say("```md\n[ Command executed ][ Info ]\n< CupOfJava is a selfbot created by Nyte for automatic moderation and other miscellaneous things >\n[ Instance owner ][ {} ]\n[ GitHub link ][ https://github.com/Nytelife26/Discord-Bots ]```")
@@ -41,8 +41,8 @@ async def ping(ctx):
     time = (ping.timestamp - ctx.message.timestamp).total_seconds() * 1000
     await bot.edit_message(ping, "```md\n[ Command executed ][ Ping ]\n< Time taken to recieve / process command in milliseconds is {} ms >\n```".format(round(time)))
 
-@bot.command(name='logout)')
-async def logout():
+@bot.command(pass_context=True, name='logout)')
+async def logout(ctx):
     """Gracefully exits CupOfJava - USE THIS INSTEAD OF CONSOLE WHEN POSSIBLE"""
     print('{} | Logout ran in {}'.format(str(ctx.message.timestamp), ctx.message.server))
     await bot.say("```md\n[ Command executed ][ Logout ]\n< LOGGING OUT >\n```")
