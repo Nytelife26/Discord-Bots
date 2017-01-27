@@ -6,9 +6,13 @@ import asyncio
 from bs4 import BeautifulSoup
 import os
 import sys
+import urllib
 # If you don't have bs4 installed or discord.py, go to terminal or CMD or whatever you use and type the following:
 # pip3 install bs4
 # Then go to Discord.py's GitHub and follow the instructions to download it
+
+# WARNING - this bot only works on Python 3.5.x and above
+# For earlier versions of Python go to the "legacy" folder
 
 token = 'user account token goes here' 
 
@@ -162,5 +166,43 @@ async def uncensor(ctx, user : discord.Member):
         await bot.edit_message(message, "```md\n[ Command failed to execute ][ PermissionsError ]\n< We do not have the manage roles permission or the Muted role does not exist so we cannot perform this task >\n```")
         return
         
+@bot.group(pass_context=True)
+async def google(ctx):
+        """Google search functions."""
+        prefix = bot.command_prefix
+        message = ctx.message
+        if ctx.invoked_subcommand is None:
+            await bot.edit_message(message, "```md\n[ Command failed to execute ][ ArgumentError ]\n< No subcommand was passed on a command group >\n[ Retrieving list ][ Subcommands ]\n# images\n# maps\n# search\n[ Subcommands ][ Examples ]\n# {}google images) QUERY\n# {}google maps) QUERY\n# {}google search) QUERY\n ```".format(prefix, prefix, prefix))
+
+@google.command(pass_context=True, name='images)')
+async def images(ctx, *, query):
+        message = ctx.message
+        if query == "":
+            await bot.edit_message(message, "```md\n[ Command failed to execute ][ ArgumentError ]\n< If you didn't know, to search Google you need to actually search for something >\n#Please define a valid query\n```")
+        else:
+            url = "https://www.google.com/search?tbm=isch&q="
+            encode = urllib.parse.quote_plus(query, encoding='utf-8', errors='replace')
+            await bot.edit_message(message, "```md\n[ Command executed ][ Google ]\n# Imagae search mode\n# Returning results..\n< {}{} >\n```\n{}{}".format(url, encode, url, encode))
+
+@google.command(pass_context=True, name='maps)')
+async def maps(ctx, *, query):
+        message = ctx.message
+        if query == "":
+            await self.bot.edit_message(message, "```md\n[ Command failed to execute ][ ArgumentError ]\n< If you didn't know, to search Google you need to actually search for something >\n#Please define a valid query\n```")
+        else:
+            url = "https://www.google.com/maps/search/"
+            encode = urllib.parse.quote_plus(query, encoding='utf-8', errors='replace')
+            await bot.edit_message(message, "```md\n[ Command executed ][ Google ]\n# Maps search mode\n# Returning results..\n< {}{} >\n```\n{}{}".format(url, encode, url, encode))
+
+@google.command(pass_context=True, name='search)')
+async def search(ctx, *, query):
+        message = ctx.message
+        if query == "":
+            await self.bot.edit_message(message, "```md\n[ Command failed to execute ][ ArgumentError ]\n< If you didn't know, to search Google you need to actually search for something >\n#Please define a valid query\n```")
+        else:
+            url = "https://www.google.com/search?q="
+            encode = urllib.parse.quote_plus(query, encoding='utf-8', errors='replace')
+            await bot.edit_message(message, "```md\n[ Command executed ][ Google ]\n# Generic search mode\n\n# Returning results..\n< {}{} >\n```\n{}{}".format(url, encode, url, encode))
+                
         
 bot.run(token, bot=False)
