@@ -9,7 +9,7 @@ import sys
 import urllib
 # If you don't have bs4 installed or discord.py, go to terminal or CMD or whatever you use and type the following:
 # pip3 install bs4
-# Then go to Discord.py's GitHub and follow the instructions to download it
+# Then go to Discord.py's GitHub and follow the instructions to download it or run python3 -m pip install -U discord.py[voice] in CMD or Terminal
 
 # WARNING - this bot only works on Python 3.5.x and above
 # For earlier versions of Python go to the "legacy" folder
