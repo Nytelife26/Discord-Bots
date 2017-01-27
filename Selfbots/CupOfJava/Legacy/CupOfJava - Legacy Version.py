@@ -9,7 +9,8 @@ import sys
 import urllib
 # If you don't have bs4 installed or discord.py, go to terminal or CMD or whatever you use and type the following:
 # pip install bs4
-# Then go to Discord.py's GitHub and follow the instructions to download discord.py
+# Then go to Discord.py's GitHub and follow the instructions to download discord.py or run python -m pip install -U discord.py[voice] in CMD or Terminal
+
 
 # This is the legacy version, built for Python 3.4.2 and below
 # If you have 3.4.2 or below, the main will not work for you
