@@ -188,7 +188,7 @@ async def images(ctx, *, query):
 async def maps(ctx, *, query):
         message = ctx.message
         if query == "":
-            await self.bot.edit_message(message, "```md\n[ Command failed to execute ][ ArgumentError ]\n< If you didn't know, to search Google you need to actually search for something >\n#Please define a valid query\n```")
+            await bot.edit_message(message, "```md\n[ Command failed to execute ][ ArgumentError ]\n< If you didn't know, to search Google you need to actually search for something >\n#Please define a valid query\n```")
         else:
             url = "https://www.google.com/maps/search/"
             encode = urllib.parse.quote_plus(query, encoding='utf-8', errors='replace')
@@ -198,11 +198,17 @@ async def maps(ctx, *, query):
 async def search(ctx, *, query):
         message = ctx.message
         if query == "":
-            await self.bot.edit_message(message, "```md\n[ Command failed to execute ][ ArgumentError ]\n< If you didn't know, to search Google you need to actually search for something >\n#Please define a valid query\n```")
+            await bot.edit_message(message, "```md\n[ Command failed to execute ][ ArgumentError ]\n< If you didn't know, to search Google you need to actually search for something >\n#Please define a valid query\n```")
         else:
             url = "https://www.google.com/search?q="
             encode = urllib.parse.quote_plus(query, encoding='utf-8', errors='replace')
             await bot.edit_message(message, "```md\n[ Command executed ][ Google ]\n# Generic search mode\n\n# Returning results..\n< {}{} >\n```\n{}{}".format(url, encode, url, encode))
                 
+@bot.command(pass_context=True, name='heil)'
+async def heil(ctx):
+    """HEIL!"""
+    message = ctx.message
+    await bot.edit_message(message, "***HEIL ~~HITLER~~ NYTE!***")
+    await bot.say(":joy: :joy: :joy: :joy: :joy: :joy: :joy: :rage: :rage: :joy: :joy: :joy: :joy: :joy: :joy: :joy: :joy: \n:joy: :joy: :joy: :joy: :joy: :joy: :rage: :rage: :rage: :joy: :joy: :joy: :joy: :joy: :joy: :joy: :joy: \n:joy: :joy: :joy: :joy: :joy: :rage: :rage: :rage: :joy: :joy: :joy: :joy: :joy: :joy: :joy: :joy: :joy: \n:joy: :joy: :joy: :joy: :rage: :rage: :rage: :joy: :joy: :joy: :joy: :joy: :rage: :joy: :joy: :joy: :joy: \n:joy: :joy: :joy: :rage: :rage: :rage: :joy: :joy: :joy: :joy: :joy: :rage: :rage: :rage: :joy: :joy: :joy: \n:joy: :joy: :joy: :joy: :rage: :rage: :rage: :joy: :joy: :joy: :rage: :rage: :rage: :rage: :rage: :joy: :joy: \n:joy: :joy: :joy: :joy: :joy: :rage: :rage: :rage: :joy: :rage: :rage: :rage: :joy: :rage: :rage: :rage: :joy: \n:joy: :joy: :joy: :joy: :joy: :joy: :rage: :rage: :rage: :rage: :rage: :joy: :joy: :joy: :rage: :rage: :rage: \n:rage: :rage: :joy: :joy: :joy: :joy: :joy: :rage: :rage: :rage: :joy: :joy: :joy: :joy: :joy: :rage: :rage:\n:rage: :rage: :rage: :joy: :joy: :joy: :rage: :rage: :rage: :rage: :rage: :joy: :joy: :joy: :joy: :joy: :joy: \n:joy: :rage: :rage: :rage: :joy: :rage: :rage: :rage: :joy: :rage: :rage: :rage: :joy: :joy: :joy: :joy: :joy: \n:joy: :joy: :rage: :rage: :rage: :rage: :rage: :joy: :joy: :joy: :rage: :rage: :rage: :joy: :joy: :joy: :joy: \n:joy: :joy: :joy: :rage: :rage: :rage: :joy: :joy: :joy: :joy: :joy: :rage: :rage: :rage: :joy: :joy: :joy: \n:joy: :joy: :joy: :joy: :rage: :joy: :joy: :joy: :joy: :joy: :rage: :rage: :rage: :joy: :joy: :joy: :joy: \n:joy: :joy: :joy: :joy: :joy: :joy: :joy: :joy: :joy: :rage: :rage: :rage: :joy: :joy: :joy: :joy: :joy: \n:joy: :joy: :joy: :joy: :joy: :joy: :joy: :joy: :rage: :rage: :rage: :joy: :joy: :joy: :joy: :joy: :joy: \n:joy: :joy: :joy: :joy: :joy: :joy: :joy: :joy: :rage: :rage: :joy: :joy: :joy: :joy: :joy: :joy: :joy:")
         
 bot.run(token, bot=False)
