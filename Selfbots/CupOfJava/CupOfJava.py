@@ -204,7 +204,7 @@ async def search(ctx, *, query):
             encode = urllib.parse.quote_plus(query, encoding='utf-8', errors='replace')
             await bot.edit_message(message, "```md\n[ Command executed ][ Google ]\n# Generic search mode\n\n# Returning results..\n< {}{} >\n```\n{}{}".format(url, encode, url, encode))
                 
-@bot.command(pass_context=True, name='heil)'
+@bot.command(pass_context=True, name='heil)')
 async def heil(ctx):
     """HEIL!"""
     message = ctx.message
