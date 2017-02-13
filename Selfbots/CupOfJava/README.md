@@ -30,8 +30,11 @@ The ping command produces errors, it says something about a variable being refer
 
 ### How the issue should be formatted
 > Name of the feature
+
 > A detailed description of what it will do
+
 > Arguments (if any)
+
 > Why it should be added to the bot
 
 # How to install
