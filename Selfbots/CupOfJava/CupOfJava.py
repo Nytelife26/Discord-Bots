@@ -30,17 +30,19 @@ async def on_ready():
     print('update / bug fix there for you')
     print('----------------------------------------')
     
-            
+@bot.event
+async def on_command(cmd, ctx):
+    timestamp = str(time.strftime("%Y-%m-%d %H:%M:%S"))
+    print('{} | "{}" ran in {}'.format(timestamp, ctx.message.content, ctx.message.server if not ctx.message.channel.is_private else "in a DM session with channel ID {}".format(ctx.message.channel.id)))
+                       
 @bot.command(pass_context=True, name='info)')
 async def info(ctx):
     """Just an info command"""
-    print('{} | Info ran in {}'.format(str(ctx.message.timestamp), ctx.message.server))
     await bot.say("```md\n[ Command executed ][ Info ]\n< CupOfJava is a selfbot created by Nyte for automatic moderation and other miscellaneous things >\n[ Instance owner ][ {} ]\n[ GitHub link ][ https://github.com/Nytelife26/Discord-Bots ]```".format(bot.user))
     
 @bot.command(pass_context=True, name='ping)')
 async def ping(ctx):
     """Does what it says on the tin."""
-    print('{} | Ping ran in {}'.format(str(ctx.message.timestamp), ctx.message.server))
     ping = await bot.say("```md\n[ Command executed ][ Ping ]\n< Ping in progress >\n```")
     time = (ping.timestamp - ctx.message.timestamp).total_seconds() * 1000
     await bot.edit_message(ping, "```md\n[ Command executed ][ Ping ]\n< Time taken to recieve / process command in milliseconds is {} ms >\n```".format(round(time)))
@@ -48,14 +50,12 @@ async def ping(ctx):
 @bot.command(pass_context=True, name='logout)')
 async def logout(ctx):
     """Gracefully exits CupOfJava - USE THIS INSTEAD OF CONSOLE WHEN POSSIBLE"""
-    print('{} | Logout ran in {}'.format(str(ctx.message.timestamp), ctx.message.server))
     await bot.say("```md\n[ Command executed ][ Logout ]\n< LOGGING OUT >\n```")
     await bot.logout()
 
 @bot.command(pass_context=True, name="embed)")
 async def embed(ctx, *, content : str=""):
     """Embeds the chosen message"""
-    print('{} | Embed ran in {}'.format(str(ctx.message.timestamp), ctx.message.server))
     message = ctx.message
     if content == "":
         await bot.say("```md\n[ Command failed to execute ][ ArgumentError ]\n< Required argument was not defined >\n```")
@@ -71,7 +71,6 @@ async def embed(ctx, *, content : str=""):
 @bot.command(pass_context=True, name='yandere)')
 async def yandere(ctx):
     """Random image from Yande.re | WARNING - DISPLAYS PORNOGRAPHIC CONTENT"""
-    print('{} | Yandere ran in {}'.format(str(ctx.message.timestamp), ctx.message.server))
     message = ctx.message
     try:
         query = ("https://yande.re/post/random")
@@ -86,7 +85,6 @@ async def yandere(ctx):
 @bot.command(name='restart)', pass_context=True)
 async def restart(ctx):
     """Restarts CupOfJava"""
-    print('{} | Restart ran in {}'.format(str(ctx.message.timestamp), ctx.message.server))
     message = ctx.message
     await bot.edit_message(message, "```md\n[ Command executed ][ Restart ]\n< RESTARTING >\n```")
     os.execlp('python', 'python', 'CupOfJava.py')
@@ -95,7 +93,6 @@ async def restart(ctx):
 @bot.command(name='discrim)', pass_context=True)
 async def discrim(ctx, discrim : str = None):
     """Lists users with a certain discriminator"""
-    print('{} | Discrim ran in {}'.format(str(ctx.message.timestamp), ctx.message.server))
     message = ctx.message
     if discrim == None:
         discrim = bot.user.discriminator
@@ -112,8 +109,7 @@ async def discrim(ctx, discrim : str = None):
 @bot.command(name='purge)', pass_context=True)
 async def purge(ctx, amount : int=20):
     """Cleans a channel with a definable limit
-    By defaultthe amount is set to 20"""
-    print('{} | Purge ran in {}'.format(str(ctx.message.timestamp), ctx.message.server))
+    By default the amount is set to 20"""
     invoking = ctx.message
     if amount <= 1: # if you truly are this lazy, then this limitation can be removed
         msg = await bot.say("```md\n[ Command failed to execute ][ layZ Error ]\n< Don't be so lazy! The defined amount of messages was either one or below, and I mean come on, you can delete one message on your own. It's easy! Just so we don't add to the hassle, we'll delete this for you in about a minute >\n```")
@@ -135,7 +131,6 @@ async def purge(ctx, amount : int=20):
 @bot.command(name='silence)', pass_context=True)
 async def silence(ctx, user : discord.Member):
     """Mutes a given user"""
-    print('{} | Silence ran in {}'.format(str(ctx.message.timestamp), ctx.message.server))
     server = ctx.message.server
     message = ctx.message
     try:
@@ -153,7 +148,6 @@ async def silence(ctx, user : discord.Member):
 @bot.command(name='uncensor)', pass_context=True)
 async def uncensor(ctx, user : discord.Member):
     """Unmutes a given user"""
-    print('{} | Uncensor ran in {}'.format(str(ctx.message.timestamp), ctx.message.server))
     server = ctx.message.server
     message = ctx.message
     try:
