@@ -19,6 +19,7 @@ import asyncio
 from bs4 import BeautifulSoup
 import urllib
 import google as gsearch
+import time
 
 # If you don't have bs4, google or discord.py installed, go to terminal or CMD or whatever you use and type the following:
 # pip3 install bs4
