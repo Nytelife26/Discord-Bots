@@ -7,6 +7,10 @@ except AssertionError:
     print("Python 3.5.x or higher is required to run CupOfJava. Please install Python 3.5.x or higher for your OS and try again.")
     return
 
+print("Valid Python installation found.")
+print("Logging in...")
+print('----------------------------------------')
+
 import discord
 from discord.ext import commands
 import random
