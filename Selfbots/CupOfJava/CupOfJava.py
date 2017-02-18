@@ -1,18 +1,27 @@
+import os
+import sys
+
+try:
+    assert sys.version_info >= (3, 5)
+except AssertionError:
+    print("Python 3.5.x or higher is required to run CupOfJava. Please install Python 3.5.x or higher for your OS and try again.")
+    return
+
 import discord
 from discord.ext import commands
 import random
 import aiohttp
 import asyncio
 from bs4 import BeautifulSoup
-import os
-import sys
 import urllib
-# If you don't have bs4 installed or discord.py, go to terminal or CMD or whatever you use and type the following:
+import google as gsearch
+
+# If you don't have bs4, google or discord.py installed, go to terminal or CMD or whatever you use and type the following:
 # pip3 install bs4
+# pip3 install google
 # Then go to Discord.py's GitHub and follow the instructions to download it or run python3 -m pip install -U discord.py[voice] in CMD or Terminal
 
 # WARNING - this bot only works on Python 3.5.x and above
-# For earlier versions of Python go to the "legacy" folder
 
 token = 'user account token goes here' 
 
@@ -196,7 +205,25 @@ async def search(ctx, *, query):
         else:
             url = "https://www.google.com/search?q="
             encode = urllib.parse.quote_plus(query, encoding='utf-8', errors='replace')
-            await bot.edit_message(message, "```md\n[ Command executed ][ Google ]\n# Generic search mode\n\n# Returning results..\n< {}{} >\n```\n{}{}".format(url, encode, url, encode))
+            form_url = "{}{}".format(url, encode)
+            try:
+                results = gsearch.search(query, tld='com', lang='en', num=1, start=0, stop=1, pause=2.0)
+                result = []
+                for x in results:
+                    result.append(x)
+                await bot.edit_message(message, "```md\n[ Command executed ][ Google ]\n# Generic search mode\n\n# Returning results..```")
+                data = discord.Embed(description="Google Search", colour=discord.Colour.green())
+                data.set_author(name="Google Generic Search", icon_url="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png")
+                data.add_field(name="Query", value=query)
+                data.add_field(name="Search URL", value=form_url)
+                data.add_field(name="Result" if len(result) == 1 else "Results", value='\n'.join(result))
+                await bot.say(embed=data)
+            except Exception as e:
+                data = discord.Embed(description="Google Search ERROR", colour=discord.Colour.red())
+                data.set_author(name="Search Error - PLEASE TRY AGAIN", icon_url="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png")
+                data.add_field(name="Error", value="Stacktrace:\n```\n{}\n```".format(e))
+                data.add_field(name="Potential cause", value="A potential cause of this issue is that there was no result for your query [`{}`], or Google is processing too many requests at this time.".format(query))
+                await bot.say(embed=data)
                 
 @bot.command(pass_context=True, name='heil)')
 async def heil(ctx):
