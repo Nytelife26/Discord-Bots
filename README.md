@@ -6,7 +6,7 @@ I hope you enjoy!
 
 # Issues
 ### If you find any issues with any bot, please do the following
-- Create an issue on the repo
+- Create an issue on the repo with the tag "bug"
 
 ### How the issue should be formatted
 > Which bot contains the issue <br/>
@@ -15,27 +15,19 @@ I hope you enjoy!
 > Which command the issue is in
 
 #### For example,
-<code> 
-BOT: CupOfJava
-CMD: ping
-ERROR:
-NameError: name 'something' is not defined
-</code>
-
+<code>BOT: CupOfJava</code> <br/>
+<code>CMD: ping</code> <br/>
+<code>ERR: link to a gist of the full traceback log goes here</code> <br/>
 ##### NOTICE - that was an example, not a real issue. Also, extra merits if you take steps to ensure that the error is reproducible and not a one-time thing.
 
 
 # Feature requests
 ### If you want to request a feature, please do the following
-- Create an issue on the repo
+- Create an issue on the repo with the tag "feature request"
 
-### How the issue should be formatted
-> Name of the bot
-
-> Name of the feature
-
-> A detailed description of what it will do
-
-> Arguments (if any)
-
-> Why it should be added to the bot
+### What the issue should contain 
+> Name of the bot <br/>
+> Name of the feature <br/>
+> A detailed description of what it will do <br/>
+> Arguments (if any) <br/>
+> Why it should be added to the bot <br/>
