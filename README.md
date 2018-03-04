@@ -16,9 +16,13 @@ I hope you enjoy!
 
 #### For example,
 <code> 
-In CupOfJava, the ping command produces errors, it says something about a variable being referenced before assignment and it's in the ping command.
+BOT: CupOfJava
+CMD: ping
+ERROR:
+NameError: name 'something' is not defined
 </code>
-##### NOTICE - that was an example, that is not a real issue. You should also be more specific than "it says something about" by telling me what it actually says [extra merits for pasting the issue into a Gist and giving me the link as that makes my life easier]
+
+##### NOTICE - that was an example, not a real issue. Also, extra merits if you take steps to ensure that the error is reproducible and not a one-time thing.
 
 
 # Feature requests
